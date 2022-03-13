@@ -10,9 +10,7 @@ class Controller extends GetxController {
   final Map<String, ModelFuncionario> _funcionarios = {...listaFuncionarios};
 
   List<ModelFuncionario> get funcionariosCadastrados =>
-      [..._funcionarios.values].obs;
-
-   
+      [..._funcionarios.values];
 
   int get count {
     return _funcionarios.length;
@@ -34,16 +32,14 @@ class Controller extends GetxController {
       ),
     );
 
-    // notifyListeners();
-    update(funcionariosCadastrados);
-    print(_funcionarios.length);
+    update();
   }
 
   void remover(ModelFuncionario funcionario) {
     // REMOVER FUNCIONARIO DO BANCO
     if (funcionario != null && funcionario.id != null) {
       _funcionarios.remove(funcionario.id);
-      // notifyListeners();
+      update();
     }
   }
 
@@ -62,6 +58,6 @@ class Controller extends GetxController {
         dataDemissao: funcionario.dataDemissao,
       ),
     );
-    // notifyListeners();
+    update();
   }
 }

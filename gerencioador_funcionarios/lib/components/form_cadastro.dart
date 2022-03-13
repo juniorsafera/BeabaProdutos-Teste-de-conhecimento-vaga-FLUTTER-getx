@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:gerencioador_funcionarios/Controller/controller.dart';
 import 'package:gerencioador_funcionarios/model/model_funcionario.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:intl/intl.dart';
 
 class FormCadastro extends StatefulWidget {
@@ -18,7 +20,7 @@ DateTime? _dataSelecionada;
 final TextEditingController cNome = TextEditingController();
 final TextEditingController cCargo = TextEditingController();
 final TextEditingController cSetor = TextEditingController();
-final c = Controller();
+final Controller control = Get.put(Controller());
 
 // limpar campos ao cadastrar funcionário
 void limpar() {
@@ -150,7 +152,7 @@ class _FormCadastroState extends State<FormCadastro> {
                           //   dataNascimento: _dataSelecionada!,
                           //   dataContratacao: DateTime.now(),
                           // ));
-                          c.cadastrar(ModelFuncionario(
+                          control.cadastrar(ModelFuncionario(
                             id: Random.secure().toString(),
                             nome: cNome.text,
                             cargo: cCargo.text,

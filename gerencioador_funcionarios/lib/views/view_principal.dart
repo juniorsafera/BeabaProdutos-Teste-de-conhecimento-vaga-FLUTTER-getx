@@ -27,10 +27,7 @@ class _ViewPrincipalState extends State<ViewPrincipal> {
           // BOTAO PARA CHAMAR A TELA DE CADASTRO
           IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FormCadastro()),
-                );
+                Get.to(const FormCadastro());
               },
               icon: const Icon(Icons.add))
         ],
@@ -43,9 +40,7 @@ class _ViewPrincipalState extends State<ViewPrincipal> {
                 ? const Center(
                     child: Text('Nenhum funcionário cadastrado!'),
                   )
-                : ListaFuncionarios(
-                    funcionarios: listaFuncionarios,
-                  ),
+                :const ListaFuncionarios(),
       ),
     );
   }

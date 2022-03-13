@@ -1,12 +1,12 @@
- 
 import 'package:flutter/material.dart';
+import 'package:gerencioador_funcionarios/Controller/controller.dart';
 import 'package:gerencioador_funcionarios/model/model_funcionario.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
- 
 
 class FormFuncionario extends StatefulWidget {
-  final ModelFuncionario funcionario;
-  const FormFuncionario({Key? key, required this.funcionario})
+   
+  const FormFuncionario({Key? key,  })
       : super(key: key);
 
   @override
@@ -20,6 +20,10 @@ final TextEditingController cNome = TextEditingController();
 final TextEditingController cCargo = TextEditingController();
 final TextEditingController cSetor = TextEditingController();
 
+final Controller control = Get.put(Controller());
+
+final funcionario = Get.arguments;
+
 bool? _demitido;
 DateTime? dataHoje;
 String? id;
@@ -30,13 +34,13 @@ class _FormFuncionarioState extends State<FormFuncionario> {
   void initState() {
     super.initState();
     // INICIALIZANDO CAMPOS PARA MANIPULAÇÃO DE DADOS
-    _dataSelecionada = widget.funcionario.dataNascimento;
-    id = widget.funcionario.id;
-    nome = widget.funcionario.nome;
-    cNome.text = widget.funcionario.nome;
-    cCargo.text = widget.funcionario.cargo;
-    cSetor.text = widget.funcionario.setor;
-    _demitido = widget.funcionario.demitido;
+    _dataSelecionada = funcionario.dataNascimento;
+    id = funcionario.id;
+    nome =  funcionario.nome;
+    cNome.text =  funcionario.nome;
+    cCargo.text = funcionario.cargo;
+    cSetor.text =  funcionario.setor;
+    _demitido =  funcionario.demitido;
   }
 
   // limpar campos
@@ -187,6 +191,19 @@ class _FormFuncionarioState extends State<FormFuncionario> {
                             //     dataDemissao: dataHoje,
                             //   ),
                             // );
+                            control.alterar(
+                              ModelFuncionario(
+                                id: id!,
+                                nome: cNome.text,
+                                cargo: cCargo.text,
+                                setor: cSetor.text,
+                                dataNascimento: _dataSelecionada!,
+                                dataContratacao:
+                                     funcionario.dataContratacao,
+                                demitido: _demitido!,
+                                dataDemissao: dataHoje,
+                              ),
+                            );
 
                             // LIMPAR E FECHAR TELA AO SALVAR
                             limpar();
