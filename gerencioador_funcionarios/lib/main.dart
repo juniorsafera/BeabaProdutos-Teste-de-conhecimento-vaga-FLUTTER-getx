@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gerencioador_funcionarios/views/view_login.dart';
 import 'package:gerencioador_funcionarios/views/view_principal.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   runApp( const GetMaterialApp(
-    home: ViewPrincipal(),
+    home: ViewLogin(),
   ) );
 }
 
