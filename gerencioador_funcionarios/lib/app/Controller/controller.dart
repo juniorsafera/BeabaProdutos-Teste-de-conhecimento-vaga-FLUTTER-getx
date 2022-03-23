@@ -1,4 +1,4 @@
-import 'dart:math';
+ import 'dart:math';
 import 'package:gerencioador_funcionarios/app/data/dados.dart';
 import 'package:gerencioador_funcionarios/app/model/model_funcionario.dart';
 import 'package:get/get.dart';
