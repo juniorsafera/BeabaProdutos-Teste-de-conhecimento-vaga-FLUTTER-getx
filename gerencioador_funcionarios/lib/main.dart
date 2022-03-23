@@ -10,6 +10,7 @@ import 'app/routes/app_routes.dart';
 
 void main() {
   runApp(GetMaterialApp(
+    debugShowCheckedModeBanner: false,
     initialRoute: Rotas.initial,
     getPages: AppPages.routes,
   ));
