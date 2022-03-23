@@ -7,6 +7,8 @@ import 'package:intl/intl.dart';
 class ListaFuncionariosWidget extends GetView<Controller>{
   const ListaFuncionariosWidget({Key? key}) : super(key: key);
 
+  
+
    @override
   Widget build (BuildContext context){
      return GetBuilder<Controller>(
